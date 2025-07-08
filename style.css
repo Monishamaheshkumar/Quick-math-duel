@@ -1,0 +1,125 @@
+/* Fullscreen background */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('bg-2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+}
+
+/* Game container */
+.container {
+  background-image: url('bg-1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 500px;
+  color: white;
+  position: relative; /* ✅ Required for .exit-btn to position correctly */
+}
+
+/* Headings */
+h1 {
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+button {
+  padding: 0.5rem 0.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Option buttons */
+.option-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 0.5rem;
+  align-items: center; /* ✅ Center the buttons */
+}
+
+.option-buttons button {
+  width: 200px; /* ✅ Medium width buttons */
+}
+
+/* Scoreboard layout */
+#scoreboard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Hide elements dynamically */
+.hidden {
+  display: none;
+}
+
+/* Mute/Unmute button */
+#toggleMusic {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* Exit Button */
+.exit-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #dc3545;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.exit-btn:hover {
+  background-color: #c82333;
+}
+
+
+/* Initial hidden state */
+.floating-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s ease;
+}
+
+/* Visible floating effect */
+.floating-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}

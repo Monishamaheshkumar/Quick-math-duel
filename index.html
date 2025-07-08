@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Math Duel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Music + Toggle Button -->
+  <audio id="bg-music" src="bg-music.mp3" loop></audio>
+  <button id="toggleMusic">🔇 Unmute</button>
+
+  <!-- Welcome Screen -->
+  <div class="container" id="welcomeScreen">
+    <h1>🎮 Welcome to Quick Math Duel</h1>
+    <p>Select a  level to begin:</p>
+    <div class="option-buttons">
+      <button onclick="startGame('easy')">😁 Easy</button>
+      <button onclick="startGame('medium')">😍 Medium</button>
+      <button onclick="startGame('hard')">🤩 Tough</button>
+    </div>
+  </div>
+
+  <!-- Game Screen (Initially hidden) -->
+  <div class="container hidden" id="gameScreen">
+    <!-- Exit Button -->
+    <button id="exitButton" class="exit-btn">Exit</button>
+
+    <h1>⚔️ You vs Computer</h1>
+
+    <div id="scoreboard">
+      <span>💪 You: <span id="playerScore">0</span></span>
+      <span>🦾 Computer: <span id="computerScore">0</span></span>
+    </div>
+
+    <div id="round">Round: <span id="roundNumber">1</span></div>
+
+    <!-- Question & Options in a floating container -->
+<div id="questionContainer" class="floating-card">
+  <div id="question">Loading...</div>
+  <div id="options" class="option-buttons"></div>
+</div>
+
+
+    <div id="result"></div>
+    <div id="computerAnswer"></div>
+
+    <button id="startBtn">Start</button>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+  <!-- Music Script -->
+  <script>
+    const bgMusic = document.getElementById("bg-music");
+    const toggleBtn = document.getElementById("toggleMusic");
+    let isPlaying = false;
+
+    toggleBtn.addEventListener("click", () => {
+      if (!isPlaying) {
+        bgMusic.play();
+        bgMusic.muted = false;
+        isPlaying = true;
+        toggleBtn.textContent = "🔊 Mute";
+      } else {
+        bgMusic.muted = !bgMusic.muted;
+        toggleBtn.textContent = bgMusic.muted ? "🔇 Unmute" : "🔊 Mute";
+      }
+    });
+  </script>
+
+</body>
+</html>
